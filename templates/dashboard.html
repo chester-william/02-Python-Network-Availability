@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="container mt-5">
+    <h2 class="mb-4 text-center">Machine Availability Dashboard</h2>
+    <div class="d-flex justify-content-center gap-2 mb-4">
+        <a href="/logout" class="btn btn-danger">Logout</a>
+        <a href="/users" class="btn btn-secondary">Manage Users</a>
+        <a href="/machines" class="btn btn-secondary">Manage Machines</a>
+    </div>
+        <table class="table table-bordered text-center">
+        <thead>
+            <tr><th>Name</th><th>IP Address</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+            {% for m in machines %}
+            <tr>
+                <td>{{ m['name'] }}</td>
+                <td>{{ m['ip_address'] }}</td>
+                <td>{{ m['status'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <script>
+    function loadMachines() {
+        fetch('/api/machines')
+            .then(response => response.json())
+            .then(data => {
+                let tbody = '';
+                data.forEach(m => {
+                    let badgeClass = m.status === 'Connect' ? 'bg-success' :
+                                     m.status === 'Reconnecting' ? 'bg-warning text-dark' : 'bg-danger';
+                    tbody += `<tr>
+                        <td>${m.name}</td>
+                        <td>${m.ip_address}</td>
+                        <td><span class="badge ${badgeClass}">${m.status}</span></td>
+                    </tr>`;
+                });
+                document.querySelector('tbody').innerHTML = tbody;
+            });
+    }
+    setInterval(loadMachines, 5000);
+    loadMachines();
+    </script>
+</body>
+</html>
