@@ -1,12 +1,12 @@
 # 🖥️ Network Availability Monitoring (Flask + SQLite)
 
-Web Application **Monitoring Availability Network** features:
+Web Application **Monitoring Availability** feature:
 - ✅ Login (SHA256 hashing)
-- ✅ Dashboard machine status with AJAX (Connect, Reconnecting, Disconnect)
+- ✅ Dashboard machine status (Connect, Reconnecting, Disconnect)
 - ✅ CRUD User
 - ✅ CRUD Machine
 - ✅ Real-time status update via **ping**
-- ✅ Auto-refresh dashboard **AJAX**
+- ✅ Auto-refresh dashboard using **AJAX**
 - ✅ API endpoint for JSON data
 
 ---
@@ -14,8 +14,8 @@ Web Application **Monitoring Availability Network** features:
 ## 📂 **Folder Structure**
 ```
 project/
-│── app.py                # Main Flask app 
-│── auto_update.py        # Optional: status update background
+│── app.py                # Mian Flask App
+│── auto_update.py        # Opsional: update status background
 │── network_monitor.db    # Database SQLite
 │── templates/            # HTML templates
 │    ├── login.html
@@ -28,7 +28,7 @@ project/
 
 ---
 
-## ⚙️ **Instalasi**
+## ⚙️ **Instalation**
 1. Clone repository:
    ```bash
 git clone https://github.com/username/network-monitoring.git
@@ -42,13 +42,13 @@ venv\Scripts\activate      # Windows
 ```
 3. Install dependencies:
    ```bash
-pip -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ---
 
-username and password default `network_monitor.db`:
-```
+## 🗄️ **Password Default in Database**
+```bash
 Username: ctr
 Password: 123
 ```
@@ -59,7 +59,7 @@ Password: 123
 ```bash
 python app.py
 ```
-Access via browser:
+Akses di browser:
 ```
 http://127.0.0.1:5000/login
 ```
@@ -67,12 +67,12 @@ http://127.0.0.1:5000/login
 ---
 
 ## 🔄 **Auto-refresh Dashboard**
--Dashboard will automated refresh in 5 secound via AJAX.
+- Dashboard will automated update in 5 second via AJAX.
 - API endpoint:
 ```
 GET /api/machines
 ```
-Example Output:
+Example output:
 ```json
 [
     {"id": 1, "name": "Server1", "ip_address": "192.168.1.10", "status": "Connect"},
@@ -87,12 +87,12 @@ Run:
 ```bash
 python auto_update.py
 ```
-This is re-new status machine in 10 second with out waiting for request. 
+This will renew status machine every 10 second without waiting for request.
 
 ---
 
 ## 🌐 **Deploy ke GitHub**
-1. Make a repository in GitHub.
+1. Make repository in GitHub.
 2. Push project:
    ```bash
 git init
