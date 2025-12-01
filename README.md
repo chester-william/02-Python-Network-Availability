@@ -35,8 +35,7 @@ project/
 git clone https://github.com/username/network-monitoring.git
 cd network-monitoring
 ```
-```
-```
+---
 
 ## 2. Create a virtual environment (optional):
    ```bash
@@ -44,23 +43,17 @@ python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 ```
-```
-```
+---
 
 ## 3. Install dependencies:
    ```bash
 pip install flask
 ```
-
 ---
 
-## 🗄️ **Initialize Database**
+## 🗄️ **Initialize Database (Default Username & Password)**
 Run:
 ```bash
-python db-first.py
-```
-This will create `network_monitor.db` and a default user:
-```
 Username: ctr
 Password: 123
 ```
@@ -114,7 +107,7 @@ git branch -M main
 git remote add origin https://github.com/username/network-monitoring.git
 git push -u origin main
 ```
-
+```
 ---
 
 ## ☁️ **Deploy to Render (Free)**
@@ -125,16 +118,9 @@ git push -u origin main
    ```bash
 pip install -r requirements.txt
 ```
+```
 5. **Start Command**:
    ```bash
 gunicorn app:app
 ```
-6. Add a `requirements.txt` file:
-   ```
-flask
-gunicorn
 
-ANJENGGGG
-```
-
----
