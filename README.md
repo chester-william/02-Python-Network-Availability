@@ -34,12 +34,18 @@ project/
 git clone https://github.com/username/network-monitoring.git
 cd network-monitoring
 ```
+
+```
+
 2. Make virtual environment (optional):
    ```bash
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 ```
+
+```
+
 3. Install dependencies:
    ```bash
 pip install -r requirements.txt
@@ -47,7 +53,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🗄️ **Password Default in Database**
+🗄️ **Password Default in Database**
 ```bash
 Username: ctr
 Password: 123
