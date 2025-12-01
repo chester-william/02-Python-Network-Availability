@@ -30,7 +30,7 @@ project/
 ---
 
 ## ⚙️ **Installation**
-1. Clone the repository:
+## 1. Clone the repository:
    ```bash
 git clone https://github.com/username/network-monitoring.git
 cd network-monitoring
